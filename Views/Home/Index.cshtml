@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-10 text-center">
+        <h1>Chefs | <a href="/dishes">Dishes</a></h1>
+    </div>
+    <div class="col-md-2">
+        <a href="/new">Add a Chef</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        Check out our roster of Chefs!<hr/>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <th>Name</th>
+                <th>Age</th>
+                <th># of Dishes</th>
+            </thead>
+            <tbody>           
+                @foreach(Chef elem in @Model) {
+                    @:<td>
+                    @elem.FirstName 
+                    @:&nbsp;
+                    @elem.LastName
+                    @:</td><td>
+                    @elem.Age 
+                    @:</td><td>
+                    @elem.Dishes.Count()
+                    @: </td>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

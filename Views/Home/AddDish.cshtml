@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-md-12 text-center"><h1>Add a Dish!</h1></div>
+</div>
+<div class="row">
+    <div class="col-md-12"><a href="/">Home</a></div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        @Html.ValidationSummary()
+    </div>
+</div>
+
+@model DishesViewModel
+<form action="/dishes/new" method="POST">
+    <div class="row">
+        <div class="col-md-4">
+            Name of Dish<br/>
+            <input asp-for="Dish.Name" />
+        </div>
+        <div class="col-md-4">
+            Chef<br/>
+            <select asp-for="Dish.Chef">
+                @foreach(Chef elem in @Model.Chefs){
+                    @:<option value="
+                    @elem.Id
+                    @:">
+                    @elem.FirstName 
+                    @elem.LastName
+                    @:</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-4">
+            Tastiness<br/>
+            <select asp-for="Dish.Tastiness">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            # of Calories<br/>
+            <input asp-for="Dish.Calories" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            Description<br/>
+            <textarea asp-for="Dish.Description"></textarea>
+        </div>
+        <div class="col-md-8">
+            <input type="submit" value="Add Dish">
+        </div>
+    </div>
+</form>
