@@ -27,15 +27,16 @@
             </thead>
             <tbody>           
                 @foreach(Dish elem in @Model) {
-                    @:<td>
+                    @:<tr><td>
                     @elem.Name
                     @:</td><td>
-                    @elem.Chef 
+                    @elem.Chef.FirstName
+                    @elem.Chef.LastName
                     @:</td><td>
                     @elem.Tastiness 
                     @:</td><td>
                     @elem.Calories
-                    @:</td>
+                    @:</td></tr>
                 }
             </tbody>
         </table>

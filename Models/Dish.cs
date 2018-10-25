@@ -10,7 +10,9 @@ namespace Chefs__N_Dishes.Models
         [Required]
         public string Name { get; set; }
         [Required]
-        public virtual Chef Chef { get; set; }
+        public int ChefId { get; set; }
+        public Chef Chef {get;set;}
+        
         [Range(1,5, ErrorMessage="Tastiness must be between 1 and 5")]
         [Required]
         public int Tastiness { get; set; }

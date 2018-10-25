@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ChefsNDishes.Migrations
 {
     [DbContext(typeof(ChefsNDishesDbContext))]
-    [Migration("20181025211540_init")]
+    [Migration("20181025224528_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

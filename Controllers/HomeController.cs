@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Chefs__N_Dishes.Models;
 using Chefs__N_Dishes.Persistance;
+using Microsoft.EntityFrameworkCore;
 
 namespace Chefs__N_Dishes.Controllers
 {
@@ -18,7 +19,7 @@ namespace Chefs__N_Dishes.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Chef> chefs = _dbcontext.Chefs;
+            IEnumerable<Chef> chefs = _dbcontext.Chefs.Include(c => c.Dishes);
             
             return View(chefs);
         }
@@ -26,7 +27,7 @@ namespace Chefs__N_Dishes.Controllers
         [Route("/dishes")]
         public IActionResult Dishes(){
 
-            IEnumerable<Dish> dishes = _dbcontext.Dishes;
+            IEnumerable<Dish> dishes = _dbcontext.Dishes.Include(d => d.Chef);
 
             return View(dishes);
         }
@@ -68,6 +69,7 @@ namespace Chefs__N_Dishes.Controllers
                 return View(vm);
             }
 
+            // elem.Dish.Chef = _dbcontext.Chefs.Where(c => c.Id == elem.Dish.ChefId).FirstOrDefault();
             _dbcontext.Add(elem.Dish);
             _dbcontext.SaveChanges();
 

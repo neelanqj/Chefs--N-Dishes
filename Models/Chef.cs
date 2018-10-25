@@ -16,7 +16,6 @@ namespace Chefs__N_Dishes.Models
         [Required]
         [CurrentDate(ErrorMessage = "Date must be before or equal to current date")]
         public DateTime DateOfBirth { get;set; }
-
         public int Age {
             get {                
                 DateTime today = DateTime.Today;

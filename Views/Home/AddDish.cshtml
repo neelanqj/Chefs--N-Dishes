@@ -19,7 +19,7 @@
         </div>
         <div class="col-md-4">
             Chef<br/>
-            <select asp-for="Dish.Chef">
+            <select asp-for="Dish.ChefId">
                 @foreach(Chef elem in @Model.Chefs){
                     @:<option value="
                     @elem.Id
